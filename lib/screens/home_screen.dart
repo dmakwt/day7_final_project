@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_day7/screens/result_screen.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   TextEditingController gradeController = TextEditingController();
-
   String result = "";
 
   @override
@@ -64,7 +59,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 result = "F";
               }
 
-              setState(() {});
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ResultScreen(
+                          result: result,
+                        )),
+              );
             },
           ),
           Container(
